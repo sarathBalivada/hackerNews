@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import {getTopStoriesId, getTopNewsStories, getTopNewsStory} from './newsUrl/hackerNewsApi.js';
+import Header from './components/header/Header.jsx';
+import Body from './components/body/Body.jsx';
 
-function App() {
+const App = () => {
+  const [storyID, setStoryID] = useState([]);
+      const [story, setStory] = useState([]);
+      
+  async function loadNews() {
+          const storyIDData = await getTopStoriesId();
+          const  storyData = await getTopNewsStories(storyIDData.slice(0, 10));
+          setStoryID(storyIDData);
+          setStory(storyData);
+    }
+      
+    useEffect(() => {
+          loadNews();
+    }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header />
+      {story.map((a) => <Body id={a.id} key={a.id} title={a.title} by={a.by} />)}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
