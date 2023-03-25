@@ -1,15 +1,19 @@
 import React  from 'react';
+import NewsCard from './NewsCard';
 
-const renderItem = ({item, index}) => (
-	<h1 key={index}>{ item }</h1>
-)
+
 const Body = ({ newsInfo }) => {
   return (
     <div className='Body'>   
-      
-       <h1>{title} </h1>
-      <p>{by}</p>
-      <a href={url}>{url}</a>
+      <div className='container'>
+          <h2>LATEST NEWS & TOP UPDATES</h2>
+          <div className="card-container">
+            {newsInfo.map((a, i) => {
+             return <NewsCard key={i} newsData={a} />
+            })}
+          </div>
+      </div>
+     
      
     </div>
   )

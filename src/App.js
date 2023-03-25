@@ -4,6 +4,7 @@ import {getTopStoriesId, getTopNewsStories} from './newsUrl/hackerNewsApi.js';
 import Header from './components/header/Header.jsx';
 import Body from './components/body/Body.jsx';
 
+
 // const Header = React.lazy(() => import('./components/header/Header.jsx'));
 // const Body = React.lazy(() => import('./components/body/Body.jsx'));
 
@@ -20,10 +21,18 @@ const App = () => {
           setNewsID(storyIDData);
           setNews(storyData);
     }
+
+    async function handelInfiniteScroll() {
+        console.log("scrollHeight" + document.documentElement.scrollHeight);
+    }
       
     useEffect(() => {
           loadNews();
     }, [])
+
+    useEffect(() => {
+            window.addEventListener("scroll", handelInfiniteScroll);
+    }, []);
 
         if (!news[news.length-1]) {
           return <iframe src="https://embed.lottiefiles.com/animation/98993"></iframe>
@@ -32,8 +41,7 @@ const App = () => {
   return (
     <div className='App'>
 
-          {/* <Header /> */}
-      {/* {news.map((a) => <Body id={a.id} key={a.id} title={a.title} by={a.by}  url={a.url} />)} */}
+          <Header />
       <Body newsInfo={news} />
     
     </div>
