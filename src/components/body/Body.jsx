@@ -1,11 +1,16 @@
-import React from 'react'
+import React  from 'react';
 
-const Body = ({ id, title, by, url }) => {
+const renderItem = ({item, index}) => (
+	<h1 key={index}>{ item }</h1>
+)
+const Body = ({ newsInfo }) => {
   return (
-    <div className='App'>
-      <h1>{title} </h1>
+    <div className='Body'>   
+      
+       <h1>{title} </h1>
       <p>{by}</p>
-      <a src={url}>click</a>
+      <a href={url}>{url}</a>
+     
     </div>
   )
 }

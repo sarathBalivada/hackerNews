@@ -15,12 +15,12 @@ export async function getTopNewsStory (id) {
     // console.log(newsData);
              
     const newsDetails = {
-        by: newsData.by,
-        id: newsData.id,
-        time: newsData.time,
+        by : newsData.by,
+        id : newsData.id,
+        time : newsData.time,
         title : newsData.title,
-        type: newsData.type,
-        url: newsData.url,
+        type : newsData.type,
+        url : newsData.url,
     }
         // console.log(newsDetails);
     return newsDetails;
@@ -31,4 +31,4 @@ export async function getTopNewsStories (id = []) {
         const response = await Promise.all(id.map(getTopNewsStory));
         return response;
 }
-getTopNewsStories([35290460, 35291936, 35285390, 35288063]);
+
