@@ -63,3 +63,12 @@
   align-items: center;
   /* width: 10px; */
 }
+
+.news-link {
+  text-decoration: none;
+}
+
+.news-link:hover {
+  text-decoration:underline;
+  color: green;
+}

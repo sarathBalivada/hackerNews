@@ -5,8 +5,6 @@ import Header from "./components/header/Header.jsx";
 import Body from "./components/body/Body.jsx";
 import Loading from "./components/Loading.jsx";
 
-// const Header = React.lazy(() => import('./components/header/Header.jsx'));
-// const Body = React.lazy(() => import('./components/body/Body.jsx'));
 
 const App = () => {
   const [newsID, setNewsID] = useState([]);
@@ -45,9 +43,9 @@ const App = () => {
 
   if (!news[news.length - 1]) {
     return (
-     <div style={{margin: "20%"}}>
-     <Loading />
-     </div>
+      <div style={{ margin: "20%" }}>
+        <Loading />
+      </div>
     );
   }
 
