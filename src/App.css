@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #ced9e9;
+  color: #ffff;
 }
 
 .App-link {
@@ -35,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #dfeaff;
+  background-color: #e8f0fe;
 }
 
 .card-container{
@@ -47,12 +47,19 @@
   
 }
 .newsCard {
+  cursor: pointer;
   padding: 10px 0px;
   margin: 10px 0px;
   font-size: 16px;
-  background-color: #dfeaff;
 }
 
 .cardTitle {
   font-size: 90px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 10px; */
 }
